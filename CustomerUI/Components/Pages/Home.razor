@@ -1,6 +1,8 @@
 ﻿@page "/"
 
-
+<div class="nav justify-content-center" style="background-color:#2E2E2E">
+        <a class="nav-link category font-monospace fs-5" aria-current="page" style="color: #2E2E2E" href="#">Combo</a
+</div>
 <div id="carouselExampleIndicators" class="carousel slide">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -27,5 +29,28 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-    
 
+<CategoryNav/>
+
+<div class="container">
+    <div>
+
+    </div>
+    <div class="row mt-4">
+        @if(products.Count() > 0)
+        {
+            foreach(var item in products)
+            {
+                <div class="card col-md-3 m-md-3 gy-3" style="width: 18rem;">
+                    <img src="/image/Product/2-MIENG.jpg" class="card-img-top">
+                    <div class="card-body mx-auto ">
+                        <h5 class="card-title">@item.ProductName </h5>
+                        <p class="card-text h5">@item.Price Vnđ</p>
+                        <a href="#" class="btn btn-primary">Add To Cart</a>
+                    </div>
+                </div>
+            }
+        }
+            
+    </div>  
+</div>

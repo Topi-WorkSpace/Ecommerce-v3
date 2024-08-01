@@ -10,18 +10,15 @@ namespace CustomerUI.Components.Layout
         [Inject]
         public ISessionStorageService session { get; set; }
 
-        //protected override async Task OnInitializedAsync()
-        //{
-
-        //    var check = await session.GetItemAsync<LoginResponse>("UserInfo");
-        //}
-
+        //OnAfterRenderAsync được gọi khi component NavBar đã được render xong
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
+                //Lấy thông tin user từ session
                 var check = await session.GetItemAsync<LoginResponse>("UserInfo");
-                StateHasChanged(); // Notify the component to re-render
+                //Thông báo cho Blazor rằng trạng thái của component đã thay đổi và cần được render lại.
+                StateHasChanged();
             }
         }
 
